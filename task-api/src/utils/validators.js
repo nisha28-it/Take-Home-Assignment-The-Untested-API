@@ -33,4 +33,15 @@ const validateUpdateTask = (body) => {
   return null;
 };
 
-module.exports = { validateCreateTask, validateUpdateTask };
+const validateAssignTask = (body) => {
+  if (!body.userId || typeof body.userId !== 'string' || body.userId.trim() === '') {
+    return 'userId is required and must be a non-empty string';
+  }
+  return null;
+};
+
+module.exports = { 
+  validateCreateTask, 
+  validateUpdateTask,
+  validateAssignTask
+};
